@@ -39,6 +39,11 @@ func _ready() -> void:
 	_death_audio.connect("finished", get_tree(), "change_scene", ["res://interface/GameOver.tscn"])
 
 
+func _input(event: InputEvent) -> void:
+	if event.is_action_pressed("ui_accept"):
+		_camera.shake_intensity += .6
+
+
 # This is the same steering movement code you used since the start of the
 # course.
 func _physics_process(_delta: float) -> void:
@@ -63,13 +68,13 @@ func teleport() -> void:
 
 # Called by enemy bullets when they hit the robot.
 func take_damage(amount: int) -> void:
-	if health <= 0:
+	if health == 0:
 		return
 
 	set_health(health - amount)
 	# If the health is lower or equal to zero, we're dead, so we disable
 	# movement.
-	if health <= 0:
+	if health == 0:
 		_disable()
 		# We play the death animation and sound too.
 		_skin.die()
