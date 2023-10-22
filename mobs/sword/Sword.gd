@@ -46,19 +46,13 @@ func does_see_target() -> bool:
 
 
 func _physics_process(delta: float) -> void:
+	
 	if not _target:
 		return
 	
 	_rotate_towards(_target.global_position, 1)
 	_line_of_sight.cast_to = _target.global_position - global_position
 	
-	if does_see_target():
-		attack()
-	else:
-		_velocity = Vector2.ZERO
-
-
-func attack() -> void:
 	if _target_within_range:
 		if _is_in_attack_state:
 			_velocity = attack_speed * _charge_direction

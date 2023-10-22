@@ -28,12 +28,13 @@ export var bottom_bridge := Rect2(Vector2(5, 11), BRIDGES_DEFAULT_SIZE)
 
 onready var _bridges := $bridges
 onready var _limits := $Limits
-onready var _mobs_spawners := $Mobs
-onready var _items_spawners := $Items
+onready var _mobs := $Mobs
+onready var _items := $Items
 onready var _spawner_robot := $SpawnerRobot
 onready var _spawner_teleporter := $SpawnerTeleporter
 
 
+# ANCHOR: ready
 func _ready() -> void:
 	# If we instantiate this room in another scene, we want the other scene to
 	# manage the robot and the teleporter.
@@ -53,20 +54,25 @@ func _ready() -> void:
 	else:
 		# hide invisible walls
 		_limits.hide()
+# END: ready
 
 
 # Spawns all the mobs
+# ANCHOR: spawn_mobs
 func spawn_mobs() -> void:
-	for child in _mobs_spawners.get_children():
+	for child in _mobs.get_children():
 		if child is Spawner:
 			child.spawn()
+# END: spawn_mobs
 
 
 # Spawns all the items
+# ANCHOR: spawn_items
 func spawn_items() -> void:
-	for child in _items_spawners.get_children():
+	for child in _items.get_children():
 		if child is Spawner:
 			child.spawn()
+# END: spawn_items
 
 
 # Spawns the player character. This should be called by the parent scene, but

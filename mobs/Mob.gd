@@ -3,7 +3,6 @@
 class_name Mob
 extends KinematicBody2D
 
-
 # The damage this mob inflicts when it hits the player.
 export var damage := 1
 # How much damage the mob can take before dying.
@@ -111,6 +110,7 @@ func take_damage(amount: int) -> void:
 # finishes, the mob is removed.
 func _die() -> void:
 	_disable()
+	Events.emit_signal("mob_died", points)
 	_animation_player.play("die")
 	_die_sound.play()
 
@@ -122,17 +122,17 @@ func _die() -> void:
 func _disable() -> void:
 	collision_layer = 0
 	collision_mask = 0
-	
+
 	_detection_area.set_deferred("monitoring", false)
 	_detection_area.set_deferred("monitorable", false)
 	_detection_area.collision_layer = 0
 	_detection_area.collision_mask = 0
-	
+
 	_attack_area.set_deferred("monitoring", false)
 	_attack_area.set_deferred("monitorable", false)
 	_attack_area.collision_mask = 0
 	_attack_area.collision_layer = 0
-	
+
 	set_physics_process(false)
 
 

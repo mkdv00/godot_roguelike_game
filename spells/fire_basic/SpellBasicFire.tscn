@@ -14,9 +14,3 @@ fire_rate = 4.0
 
 [node name="AudioStreamPlayer2D" parent="." index="0"]
 stream = ExtResource( 3 )
-
-[node name="HandLeft" parent="." index="1"]
-position = Vector2( 15.8633, -27 )
-
-[node name="HandRight" parent="." index="2"]
-position = Vector2( 11.8633, 30 )

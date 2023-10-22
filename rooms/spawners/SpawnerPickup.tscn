@@ -1,12 +1,14 @@
-[gd_scene load_steps=6 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://rooms/spawners/Spawner.gd" type="Script" id=1]
-[ext_resource path="res://pickups/ice_spells/PickupIce.tscn" type="PackedScene" id=2]
-[ext_resource path="res://rooms/spawners/spawner_pickup.svg" type="Texture" id=3]
-[ext_resource path="res://pickups/fire_spells/PickupFire.tscn" type="PackedScene" id=4]
-[ext_resource path="res://spells/lightning_shot/SpellLighting.tscn" type="PackedScene" id=5]
+[ext_resource path="res://rooms/spawners/spawner_pickup.svg" type="Texture" id=2]
+[ext_resource path="res://pickups/ice_spells/PickupIcePunch.tscn" type="PackedScene" id=3]
+[ext_resource path="res://pickups/fire_spells/PickupRapidFire.tscn" type="PackedScene" id=4]
+[ext_resource path="res://pickups/lightnings_spells/PickupLightningShot.tscn" type="PackedScene" id=5]
+[ext_resource path="res://pickups/health/PickupHealth.tscn" type="PackedScene" id=6]
+[ext_resource path="res://pickups/fire_spells/PickupFireSpray.tscn" type="PackedScene" id=7]
 
 [node name="SpawnerPickup" type="Sprite"]
-texture = ExtResource( 3 )
+texture = ExtResource( 2 )
 script = ExtResource( 1 )
-list = [ ExtResource( 2 ), ExtResource( 4 ), ExtResource( 5 ) ]
+list = [ ExtResource( 3 ), ExtResource( 5 ), ExtResource( 6 ), ExtResource( 7 ), ExtResource( 4 ) ]

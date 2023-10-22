@@ -1,14 +1,21 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=28 format=2]
 
 [ext_resource path="res://robot/Skin.gd" type="Script" id=1]
 [ext_resource path="res://robot/robot_sprites.png" type="Texture" id=2]
 [ext_resource path="res://robot/SpellHolder.gd" type="Script" id=3]
-[ext_resource path="res://robot/pain_05.wav" type="AudioStream" id=4]
+[ext_resource path="res://props/RandomAudioPlayer2D.gd" type="Script" id=4]
 [ext_resource path="res://robot/ShakingCamera2D.gd" type="Script" id=5]
 [ext_resource path="res://robot/Robot.gd" type="Script" id=6]
 [ext_resource path="res://props/shadow/Shadow.tscn" type="PackedScene" id=7]
-[ext_resource path="res://robot/death_03.wav" type="AudioStream" id=8]
-[ext_resource path="res://spells/fire_basic/SpellBasicFire.tscn" type="PackedScene" id=9]
+[ext_resource path="res://robot/pain_05.wav" type="AudioStream" id=8]
+[ext_resource path="res://robot/pain_04.wav" type="AudioStream" id=9]
+[ext_resource path="res://robot/pain_03.wav" type="AudioStream" id=10]
+[ext_resource path="res://robot/pain_02.wav" type="AudioStream" id=11]
+[ext_resource path="res://robot/pain_01.wav" type="AudioStream" id=12]
+[ext_resource path="res://robot/death_01.wav" type="AudioStream" id=13]
+[ext_resource path="res://robot/death_02.wav" type="AudioStream" id=14]
+[ext_resource path="res://robot/death_03.wav" type="AudioStream" id=15]
+[ext_resource path="res://spells/fire_basic/SpellBasicFire.tscn" type="PackedScene" id=16]
 [ext_resource path="res://robot/smoke.png" type="Texture" id=17]
 
 [sub_resource type="Animation" id=5]
@@ -255,8 +262,8 @@ tracks/0/keys = {
 "values": [ Vector2( -0.474655, 0 ), Vector2( -0.474655, -8 ) ]
 }
 
-[sub_resource type="CircleShape2D" id=4]
-radius = 51.0
+[sub_resource type="CircleShape2D" id=17]
+radius = 47.3814
 
 [sub_resource type="CircleShape2D" id=1]
 radius = 19.0754
@@ -313,13 +320,13 @@ position = Vector2( 0, -36 )
 collision_mask = 0
 monitoring = false
 script = ExtResource( 3 )
-spell_scene = ExtResource( 9 )
+spell_scene = ExtResource( 16 )
 
 [node name="SpellSpawningPoint" type="Position2D" parent="SpellHolder"]
-position = Vector2( 77, 0 )
+position = Vector2( 66, 0 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="SpellHolder"]
-shape = SubResource( 4 )
+shape = SubResource( 17 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 z_index = 2
@@ -343,9 +350,11 @@ process_material = SubResource( 16 )
 texture = ExtResource( 17 )
 
 [node name="DamageAudio" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 4 )
 bus = "SFX"
+script = ExtResource( 4 )
+sounds = [ ExtResource( 12 ), ExtResource( 11 ), ExtResource( 10 ), ExtResource( 9 ), ExtResource( 8 ) ]
 
 [node name="DeathAudio" type="AudioStreamPlayer2D" parent="."]
-stream = ExtResource( 8 )
 bus = "SFX"
+script = ExtResource( 4 )
+sounds = [ ExtResource( 13 ), ExtResource( 14 ), ExtResource( 15 ) ]

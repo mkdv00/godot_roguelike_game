@@ -29,15 +29,20 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://pickups/Pickup.gd"
 }, {
-"base": "AudioStreamPlayer",
-"class": "RandomAudioPlayer",
+"base": "AudioStreamPlayer2D",
+"class": "RandomAudioPlayer2D",
 "language": "GDScript",
-"path": "res://music/MusicPlayer.gd"
+"path": "res://props/RandomAudioPlayer2D.gd"
 }, {
 "base": "KinematicBody2D",
 "class": "Robot",
 "language": "GDScript",
 "path": "res://robot/Robot.gd"
+}, {
+"base": "HBoxContainer",
+"class": "SelectedSpellIcon",
+"language": "GDScript",
+"path": "res://interface/ui_elements/SelectedSpellIcon.gd"
 }, {
 "base": "Camera2D",
 "class": "ShakingCamera2D",
@@ -60,19 +65,29 @@ _global_script_classes=[ {
 "path": "res://spells/fire_basic/SpellBasicFire.gd"
 }, {
 "base": "Spell",
-"class": "SpellBasicIce",
+"class": "SpellFire",
 "language": "GDScript",
-"path": "res://spells/ice_punch/IceSpell.gd"
-}, {
-"base": "Spell",
-"class": "SpellBasicLighting",
-"language": "GDScript",
-"path": "res://spells/lightning_shot/SpellLighting.gd"
+"path": "res://spells/fire_spray/SpellFireSpray.gd"
 }, {
 "base": "Area2D",
 "class": "SpellHolder",
 "language": "GDScript",
 "path": "res://robot/SpellHolder.gd"
+}, {
+"base": "Spell",
+"class": "SpellIce",
+"language": "GDScript",
+"path": "res://spells/ice_punch/SpellIcePunch.gd"
+}, {
+"base": "Spell",
+"class": "SpellLightning",
+"language": "GDScript",
+"path": "res://spells/lightning_shot/SpellLightningShot.gd"
+}, {
+"base": "Spell",
+"class": "SpellRapidFire",
+"language": "GDScript",
+"path": "res://spells/fire_rapid/SpellRapidFire.gd"
 }, {
 "base": "Area2D",
 "class": "Teleporter",
@@ -89,23 +104,31 @@ _global_script_class_icons={
 "Bullet": "",
 "Mob": "",
 "Pickup": "",
-"RandomAudioPlayer": "",
+"RandomAudioPlayer2D": "",
 "Robot": "",
+"SelectedSpellIcon": "",
 "ShakingCamera2D": "",
 "Spawner": "",
 "Spell": "",
 "SpellBasicFire": "",
-"SpellBasicIce": "",
-"SpellBasicLighting": "",
+"SpellFire": "",
 "SpellHolder": "",
+"SpellIce": "",
+"SpellLightning": "",
+"SpellRapidFire": "",
 "Teleporter": "",
 "UIHealthBar": ""
 }
 
 [application]
 
-config/name="Learn to Code: final game project - start"
+config/name="Learn to Code: final game project"
+run/main_scene="res://Main.tscn"
 config/icon="res://icon.png"
+
+[autoload]
+
+Events="*res://Events.gd"
 
 [debug]
 
@@ -118,6 +141,7 @@ gdscript/warnings/return_value_discarded=false
 
 window/size/width=1920
 window/size/height=1080
+window/size/fullscreen=true
 window/dpi/allow_hidpi=true
 window/stretch/mode="2d"
 window/stretch/aspect="keep"

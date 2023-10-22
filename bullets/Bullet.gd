@@ -71,8 +71,6 @@ func _move(delta: float) -> void:
 # Called to provoke damage on the hit body. It's in a separate function so that
 # scripts that extend Bullet can override it.
 func _hit_body(body: Node) -> void:
-	# You can check if a node has a function defined by calling its has_method()
-	# function.
 	if not body.has_method("take_damage"):
 		return
 	body.take_damage(damage)

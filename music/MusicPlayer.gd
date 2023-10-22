@@ -4,7 +4,6 @@
 # any regular AudioStreamPlayer.
 #
 # This script only works in-game, not in the editor.
-class_name RandomAudioPlayer
 extends AudioStreamPlayer
 
 export(Array, AudioStream) var sounds = []

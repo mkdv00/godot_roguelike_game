@@ -193,6 +193,8 @@ hue_variation = 1.0
 
 [node name="Bomb" instance=ExtResource( 1 )]
 script = ExtResource( 5 )
+damage = 3
+health = 4
 
 [node name="CollisionShape2D" parent="." index="0"]
 visible = false
@@ -213,6 +215,7 @@ shape = SubResource( 2 )
 texture = ExtResource( 3 )
 
 [node name="Alert" parent="Sprite" index="0"]
+visible = false
 texture = ExtResource( 2 )
 
 [node name="Shadow" parent="." index="4"]
@@ -245,5 +248,5 @@ texture = ExtResource( 6 )
 
 [node name="Sprite" type="Sprite" parent="ShockArea" index="2"]
 modulate = Color( 1, 1, 1, 0 )
-scale = Vector2( 0.986667, 0.986667 )
+scale = Vector2( 1e-05, 1e-05 )
 texture = ExtResource( 8 )

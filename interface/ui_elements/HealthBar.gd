@@ -19,7 +19,6 @@ export var health := 5 setget set_health
 func _ready() -> void:
 	_redraw_health_bar()
 
-
 # Called when modifying the health property or when Events emits the
 # "player_health_changed" signal.
 func set_health(new_health: int) -> void:

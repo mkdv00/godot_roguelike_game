@@ -1,0 +1,13 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://pickups/health/pickup_health.wav" type="AudioStream" id=1]
+[ext_resource path="res://pickups/Pickup.tscn" type="PackedScene" id=2]
+[ext_resource path="res://pickups/health/PickupHealth.gd" type="Script" id=3]
+[ext_resource path="res://props/RandomAudioPlayer2D.gd" type="Script" id=4]
+
+[node name="PickupHealth" instance=ExtResource( 2 )]
+script = ExtResource( 3 )
+
+[node name="AudioStreamPlayer2D" parent="." index="3"]
+stream = ExtResource( 1 )
+script = ExtResource( 4 )

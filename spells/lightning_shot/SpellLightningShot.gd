@@ -1,4 +1,4 @@
-class_name SpellBasicIce
+class_name SpellLightning
 extends Spell
 
 

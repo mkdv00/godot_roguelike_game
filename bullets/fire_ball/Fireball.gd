@@ -1,6 +1,7 @@
 extends Bullet
 
 onready var _animation_player := $AnimationPlayer as AnimationPlayer
+onready var _particles := $Particles2D as Particles2D
 
 
 func _ready() -> void:

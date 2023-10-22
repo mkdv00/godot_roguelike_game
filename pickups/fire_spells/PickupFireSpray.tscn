@@ -1,0 +1,23 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://pickups/fire_spells/pickup_fire.wav" type="AudioStream" id=1]
+[ext_resource path="res://spells/fire_spray/SpellFireSpray.tscn" type="PackedScene" id=2]
+[ext_resource path="res://pickups/fire_spells/pickup_fire.png" type="Texture" id=3]
+[ext_resource path="res://pickups/Pickup.tscn" type="PackedScene" id=4]
+[ext_resource path="res://pickups/PickupSpell.gd" type="Script" id=5]
+[ext_resource path="res://spells/fire_spray/particle_flame_2.png" type="Texture" id=6]
+[ext_resource path="res://props/RandomAudioPlayer2D.gd" type="Script" id=7]
+
+[node name="PickupFire" instance=ExtResource( 4 )]
+script = ExtResource( 5 )
+spell_scene = ExtResource( 2 )
+
+[node name="Sprite" parent="." index="2"]
+texture = ExtResource( 3 )
+
+[node name="PariclesSparkle" parent="Sprite" index="0"]
+texture = ExtResource( 6 )
+
+[node name="AudioStreamPlayer2D" parent="." index="3"]
+stream = ExtResource( 1 )
+script = ExtResource( 7 )
