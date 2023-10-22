@@ -44,6 +44,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://robot/ShakingCamera2D.gd"
 }, {
+"base": "Sprite",
+"class": "Spawner",
+"language": "GDScript",
+"path": "res://rooms/spawners/Spawner.gd"
+}, {
 "base": "Node2D",
 "class": "Spell",
 "language": "GDScript",
@@ -58,6 +63,11 @@ _global_script_classes=[ {
 "class": "SpellBasicIce",
 "language": "GDScript",
 "path": "res://spells/ice_punch/IceSpell.gd"
+}, {
+"base": "Spell",
+"class": "SpellBasicLighting",
+"language": "GDScript",
+"path": "res://spells/lightning_shot/SpellLighting.gd"
 }, {
 "base": "Area2D",
 "class": "SpellHolder",
@@ -82,9 +92,11 @@ _global_script_class_icons={
 "RandomAudioPlayer": "",
 "Robot": "",
 "ShakingCamera2D": "",
+"Spawner": "",
 "Spell": "",
 "SpellBasicFire": "",
 "SpellBasicIce": "",
+"SpellBasicLighting": "",
 "SpellHolder": "",
 "Teleporter": "",
 "UIHealthBar": ""

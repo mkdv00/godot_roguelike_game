@@ -1,22 +1,13 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=6 format=2]
 
 [ext_resource path="res://rooms/assets/tileset_floating_dungeon.tres" type="TileSet" id=1]
-[ext_resource path="res://robot/Robot.tscn" type="PackedScene" id=2]
-[ext_resource path="res://pickups/ice_spells/PickupIce.tscn" type="PackedScene" id=3]
+[ext_resource path="res://rooms/spawners/SpawnerRobot.tscn" type="PackedScene" id=2]
+[ext_resource path="res://rooms/spawners/SpawnerTeleporter.tscn" type="PackedScene" id=3]
 [ext_resource path="res://rooms/assets/tileset_inivisible_walls.tres" type="TileSet" id=4]
-[ext_resource path="res://mobs/dummy/Dummy.tscn" type="PackedScene" id=5]
-[ext_resource path="res://mobs/shield/ShieldMob.tscn" type="PackedScene" id=6]
-[ext_resource path="res://mobs/shield/NeverForgetPlayerShieldMob.tscn" type="PackedScene" id=7]
-[ext_resource path="res://mobs/bomb/Bomb.tscn" type="PackedScene" id=8]
-[ext_resource path="res://mobs/sword/SwordMob.tscn" type="PackedScene" id=9]
-[ext_resource path="res://rooms/spawners/Spawner.gd" type="Script" id=10]
-[ext_resource path="res://rooms/spawners/spawner_mob.svg" type="Texture" id=11]
-[ext_resource path="res://rooms/TestRoom.gd" type="Script" id=12]
-[ext_resource path="res://pickups/fire_spells/PickupFire.tscn" type="PackedScene" id=13]
-[ext_resource path="res://pickups/lightnings_spells/PickupLighting.tscn" type="PackedScene" id=14]
+[ext_resource path="res://rooms/BaseRoom.gd" type="Script" id=5]
 
-[node name="TestRoom" type="YSort"]
-script = ExtResource( 12 )
+[node name="BaseRoom" type="YSort"]
+script = ExtResource( 5 )
 
 [node name="bridges" type="TileMap" parent="."]
 z_index = -10
@@ -75,49 +66,10 @@ __meta__ = {
 "_edit_lock_": true
 }
 
-[node name="Spawner" type="Sprite" parent="Mobs"]
-position = Vector2( -123, 261 )
-texture = ExtResource( 11 )
-script = ExtResource( 10 )
-list = [ ExtResource( 8 ), ExtResource( 5 ), ExtResource( 7 ), ExtResource( 6 ), ExtResource( 9 ) ]
-
-[node name="Dummy" parent="Mobs" instance=ExtResource( 5 )]
-position = Vector2( -296, -160 )
-
-[node name="Dummy2" parent="Mobs" instance=ExtResource( 5 )]
-position = Vector2( 59, -161 )
-
-[node name="Dummy3" parent="Mobs" instance=ExtResource( 5 )]
-position = Vector2( 394, -156 )
-
-[node name="ShieldMob" parent="Mobs" instance=ExtResource( 6 )]
-position = Vector2( 1842, 51 )
-health = 4
-points = 15
-speed = 300.0
-
-[node name="NeverForgetPlayerShieldMob" parent="Mobs" instance=ExtResource( 7 )]
-position = Vector2( 470, 1591 )
-
-[node name="Bomb" parent="Mobs" instance=ExtResource( 8 )]
-position = Vector2( 947, 828 )
-
-[node name="SwordMob" parent="Mobs" instance=ExtResource( 9 )]
-position = Vector2( 1812, 1245 )
-
 [node name="Items" type="Node2D" parent="."]
 __meta__ = {
 "_edit_lock_": true
 }
-
-[node name="PickupIce" parent="Items" instance=ExtResource( 3 )]
-position = Vector2( 650, 356 )
-
-[node name="PickupFire" parent="Items" instance=ExtResource( 13 )]
-position = Vector2( 649, 150 )
-
-[node name="PickupLighting" parent="Items" instance=ExtResource( 14 )]
-position = Vector2( 652, -32 )
 
 [node name="Label" type="Label" parent="."]
 margin_left = -548.0
@@ -128,5 +80,8 @@ text = "TEST ROOM
 
 use this room to test the different mechanics. "
 
-[node name="Robot" parent="." instance=ExtResource( 2 )]
-position = Vector2( 383, 380 )
+[node name="SpawnerRobot" parent="." instance=ExtResource( 2 )]
+position = Vector2( 568, 66 )
+
+[node name="SpawnerTeleporter" parent="." instance=ExtResource( 3 )]
+position = Vector2( 1518, 1571 )

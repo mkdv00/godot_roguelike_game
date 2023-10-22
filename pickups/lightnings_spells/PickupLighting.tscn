@@ -1,0 +1,21 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://pickups/Pickup.tscn" type="PackedScene" id=1]
+[ext_resource path="res://pickups/PickupSpell.gd" type="Script" id=2]
+[ext_resource path="res://pickups/lightnings_spells/particle_lightning.png" type="Texture" id=3]
+[ext_resource path="res://pickups/lightnings_spells/pickup_lightning_shot.png" type="Texture" id=4]
+[ext_resource path="res://spells/lightning_shot/SpellLighting.tscn" type="PackedScene" id=5]
+[ext_resource path="res://pickups/lightnings_spells/pickup_lightning_shot.wav" type="AudioStream" id=6]
+
+[node name="PickupLighting" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+spell_scene = ExtResource( 5 )
+
+[node name="Sprite" parent="." index="2"]
+texture = ExtResource( 4 )
+
+[node name="PariclesSparkle" parent="Sprite" index="0"]
+texture = ExtResource( 3 )
+
+[node name="AudioStreamPlayer2D" parent="." index="3"]
+stream = ExtResource( 6 )
